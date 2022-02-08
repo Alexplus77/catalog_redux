@@ -1,0 +1,2 @@
+export const ADD_INPUT_VALUE = "ADD_INPUT_VALUE";
+export const HANDLE_SUBMIT = "HANDLE_SUBMIT";
