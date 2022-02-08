@@ -1,3 +1,6 @@
+body{
+
+}
 .form-group{
   display: grid;
   gap: 10px;
@@ -23,12 +26,77 @@ h3{
   justify-self: center;
 }
 .productItem-container{
+  position: relative;
   display: grid;
   gap: 10px;
   padding: 10px;
+}
+.container-productPage{
+  display: grid;
+  justify-items: center;
+  margin-top: 20px;
 }
 .productList-container{
   display: grid;
   grid-template-columns: repeat(3, 400px);
   padding: 10px;
+}
+.price-block{
+  display: grid;
+  width: 200px;
+  grid-auto-flow: column;
+}
+.price-discount{
+  text-decoration: line-through;
+}
+.hide-text{
+  display: none;
+}
+.discount{
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 5%;
+  color: white;
+  background-color: red;
+  border: 2px red solid;
+  width: 50px;
+  border-radius: 70%;
+  text-align: center;
+  z-index: 9;
+}
+.errors-container{
+  position:relative;
+  display: grid;
+  text-align: center;
+  align-items: center;
+  justify-items: center;
+  z-index: 999;
+}
+.error-background{
+  position: fixed;
+  filter: opacity(40%);
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 900;
+}
+.errors-text{
+  position: absolute;
+  display: grid;
+  justify-items: center;
+  padding: 10px;
+  width: 300px;
+  height: 150px;
+  margin-top:50%;
+  border: 2px red solid;
+  color: red;
+  background-color: white;
+  z-index:1000;
+}
+.btn-error{
+  width: 70px;
+  height: 50px;
+  align-self: end;
 }

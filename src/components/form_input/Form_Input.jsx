@@ -5,6 +5,7 @@ import { add_input_value, handleSubmit } from "actions/createActions";
 const Form_Input = () => {
   const dispatch = useDispatch();
   const valueProduct = useSelector((state) => state.valueInputReducer);
+
   const handleChangeInput = ({ target }) => {
     dispatch(add_input_value(target.name, target.value));
   };
@@ -26,6 +27,7 @@ const Form_Input = () => {
           name="name"
           value={valueProduct.name}
           placeholder="Введите название товара"
+          required={true}
         />
         <label htmlFor="price">Цена товара</label>
         <input
@@ -36,6 +38,7 @@ const Form_Input = () => {
           name="price"
           value={valueProduct.price}
           placeholder="Введите стоимость товара"
+          required={true}
         />
         <label htmlFor="discount">Скидка на товар (%)</label>
         <input
@@ -45,8 +48,9 @@ const Form_Input = () => {
           id="discount"
           name="discount"
           value={valueProduct.discount}
-          placeholder="Введите скидку на товар в процентах"
+          placeholder="Введите скидку на товар (не обязательное поле)"
         />
+
         <label htmlFor="image">Изображение товара</label>
         <input
           onChange={handleChangeInput}
@@ -56,6 +60,7 @@ const Form_Input = () => {
           name="image"
           value={valueProduct.image}
           placeholder="Введите ссылку на изображение товара"
+          required={true}
         />
       </div>
       <button type="submit" className="btn btn-primary">

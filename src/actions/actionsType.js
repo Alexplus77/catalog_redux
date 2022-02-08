@@ -1,2 +1,3 @@
 export const ADD_INPUT_VALUE = "ADD_INPUT_VALUE";
 export const HANDLE_SUBMIT = "HANDLE_SUBMIT";
+export const EXIT_MODAL_ERROR = "EXIT_MODAL_ERROR";
