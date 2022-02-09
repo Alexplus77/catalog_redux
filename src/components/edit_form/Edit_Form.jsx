@@ -9,7 +9,7 @@ import {
 const Edit_Form = () => {
   const dispatch = useDispatch();
   const valueProduct = useSelector((state) => state.valueInputReducer);
-  const { editProduct } = useSelector((state) => state.itemsListReducer);
+
   const handleChangeInput = ({ target }) => {
     dispatch(add_input_value(target.name, target.value));
   };
