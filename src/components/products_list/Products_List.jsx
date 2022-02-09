@@ -4,10 +4,10 @@ import { useSelector } from "react-redux";
 
 const Products_List = () => {
   const { products } = useSelector((state) => state.itemsListReducer);
-  console.log(products);
+
   return (
     <div className="container-productPage">
-      <h1>Приглядитесь к этим товарам</h1>
+      <h1>Приглядитесь к этим предложениям</h1>
       <div className="productList-container">
         {products.length ? (
           products.map(
