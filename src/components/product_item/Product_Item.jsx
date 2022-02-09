@@ -18,7 +18,7 @@ const Product_Item = ({ name, price, image, discount, priceDiscount }) => {
         </i>
       </div>
 
-      <i>{name}</i>
+      <i className="name-product">{name}</i>
     </div>
   );
 };

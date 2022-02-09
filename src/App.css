@@ -20,6 +20,7 @@ h3{
 }
 .image-product{
   width: 300px;
+  height: 200px;
 }
 .btn-primary{
   width: 100px;
@@ -102,4 +103,7 @@ h3{
 }
 .text-noList{
   grid-column: 2/3;
+}
+.name-product{
+  color: blue;
 }
