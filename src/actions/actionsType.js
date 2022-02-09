@@ -1,3 +1,8 @@
 export const ADD_INPUT_VALUE = "ADD_INPUT_VALUE";
 export const HANDLE_SUBMIT = "HANDLE_SUBMIT";
 export const EXIT_MODAL_ERROR = "EXIT_MODAL_ERROR";
+export const REMOVE_ITEM = "REMOVE_ITEM";
+export const ON_EDIT_MODE = "ON_EDIT_MODE";
+export const EXIT_EDIT_ITEM = "EXIT_EDIT_ITEM";
+export const ADD_EDIT_ITEM = "ADD_EDIT_ITEM";
+export const HANDLE_SAVE_EDIT_ITEM = "HANDLE_SAVE_EDIT_ITEM";

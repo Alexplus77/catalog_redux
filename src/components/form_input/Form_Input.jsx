@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { add_input_value, handleSubmit } from "actions/createActions";
 
 const Form_Input = () => {
   const dispatch = useDispatch();
   const valueProduct = useSelector((state) => state.valueInputReducer);
+  const form = useRef();
 
   const handleChangeInput = ({ target }) => {
     dispatch(add_input_value(target.name, target.value));
@@ -12,10 +13,11 @@ const Form_Input = () => {
   const handleSubmitData = (e) => {
     e.preventDefault();
     dispatch(handleSubmit(valueProduct));
+    form.current.reset();
   };
 
   return (
-    <form className="form-container" onSubmit={handleSubmitData}>
+    <form className="form-container" onSubmit={handleSubmitData} ref={form}>
       <h3>Форма добавления товара</h3>
       <div className="form-group">
         <label htmlFor="name">Название товара</label>
@@ -25,7 +27,7 @@ const Form_Input = () => {
           className="form-control"
           id="name"
           name="name"
-          value={valueProduct.name}
+          defaultValue=""
           placeholder="Введите название товара"
           required={true}
         />
@@ -36,7 +38,7 @@ const Form_Input = () => {
           className="form-control"
           id="price"
           name="price"
-          value={valueProduct.price}
+          defaultValue=""
           placeholder="Введите стоимость товара"
           required={true}
         />
@@ -47,7 +49,7 @@ const Form_Input = () => {
           className="form-control"
           id="discount"
           name="discount"
-          value={valueProduct.discount}
+          defaultValue=""
           placeholder="Введите скидку на товар (не обязательное поле)"
         />
 
@@ -58,7 +60,7 @@ const Form_Input = () => {
           className="form-control"
           id="image"
           name="image"
-          value={valueProduct.image}
+          defaultValue=""
           placeholder="Введите ссылку на изображение товара"
           required={true}
         />

@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 const Products_List = () => {
   const { products } = useSelector((state) => state.itemsListReducer);
-
+  console.log(products);
   return (
     <div className="container-productPage">
       <h1>Приглядитесь к этим предложениям</h1>
@@ -19,6 +19,7 @@ const Products_List = () => {
                 image={image}
                 discount={discount}
                 priceDiscount={priceDiscount}
+                id={id}
               />
             )
           )

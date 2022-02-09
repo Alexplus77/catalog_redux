@@ -1,4 +1,8 @@
-import { ADD_INPUT_VALUE, HANDLE_SUBMIT } from "actions/actionsType";
+import {
+  ADD_INPUT_VALUE,
+  HANDLE_SUBMIT,
+  ADD_EDIT_ITEM,
+} from "actions/actionsType";
 
 const initialState = {
   image: "",
@@ -11,13 +15,21 @@ const valueInputReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_INPUT_VALUE:
       const { name, value } = action.payload;
-      name === "discount" &&
-        value &&
-        (state.priceDiscount = state.price - (state.price * value) / 100);
-
+      // name === "discount" &&
+      //   value &&
+      //   (state.priceDiscount = state.price - (state.price * value) / 100);
       return { ...state, [name]: value };
-    case HANDLE_SUBMIT:
-      return { ...state, image: "", name: "", price: "", discount: "" };
+
+    case ADD_EDIT_ITEM:
+      const data = action.payload;
+
+      return {
+        ...state,
+        image: data.image,
+        name: data.name,
+        price: data.price,
+        discount: data.discount,
+      };
     default:
       return state;
   }
