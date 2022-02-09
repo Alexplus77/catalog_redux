@@ -1,6 +1,10 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { add_input_value, handleSaveItem } from "actions/createActions";
+import {
+  add_input_value,
+  handleSaveItem,
+  handleExitEditMode,
+} from "actions/createActions";
 
 const Edit_Form = () => {
   const dispatch = useDispatch();
@@ -13,7 +17,9 @@ const Edit_Form = () => {
     e.preventDefault();
     dispatch(handleSaveItem(valueProduct));
   };
-  console.log(valueProduct);
+  const handleExitModeEdit = () => {
+    dispatch(handleExitEditMode());
+  };
   return (
     <div className="edit-container">
       <div className="form-edit-background" />
@@ -69,7 +75,11 @@ const Edit_Form = () => {
           <button type="submit" className="btn btn-primary">
             Save
           </button>
-          <button type="button" className="btn btn-primary">
+          <button
+            onClick={handleExitModeEdit}
+            type="button"
+            className="btn btn-primary"
+          >
             Exit
           </button>
         </div>

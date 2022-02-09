@@ -6,6 +6,7 @@ import {
   HANDLE_SAVE_EDIT_ITEM,
   ON_EDIT_MODE,
   ADD_EDIT_ITEM,
+  EXIT_EDIT_ITEM,
 } from "./actionsType";
 
 export const add_input_value = (name, value) => ({
@@ -35,4 +36,7 @@ export const onEditMode = (id) => ({
 export const addEditItem = (data) => ({
   type: ADD_EDIT_ITEM,
   payload: data,
+});
+export const handleExitEditMode = () => ({
+  type: EXIT_EDIT_ITEM,
 });

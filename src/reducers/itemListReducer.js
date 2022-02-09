@@ -4,6 +4,7 @@ import {
   REMOVE_ITEM,
   ON_EDIT_MODE,
   HANDLE_SAVE_EDIT_ITEM,
+  EXIT_EDIT_ITEM,
 } from "actions/actionsType";
 import { nanoid } from "nanoid";
 
@@ -57,8 +58,9 @@ const itemListReducer = (state = initialState, action) => {
         }
         return product;
       });
-      console.log(dataEdit);
       return { ...state, products: updateState, editProduct: null, errors: "" };
+    case EXIT_EDIT_ITEM:
+      return { ...state, editProduct: null };
     default:
       return state;
   }
