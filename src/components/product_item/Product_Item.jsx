@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useDispatch } from "react-redux";
 import {
   handleRemoveItem,
   onEditMode,
@@ -10,12 +10,11 @@ const Product_Item = ({ name, price, image, discount, priceDiscount, id }) => {
   const dispatch = useDispatch();
 
   const defaultImage = "https://i.ibb.co/h18xKCX/tv-2872705-640.png";
-
+  const additionalTopSpace = 50;
   const handleRemoveProduct = (id) => dispatch(handleRemoveItem(id));
 
   const handleOnEditMode = (id, e) => {
-    const top = e.target.getBoundingClientRect();
-    const positionItem = e.pageY - top.top;
+    const positionItem = e.pageY - e.clientY + additionalTopSpace;
 
     dispatch(onEditMode(id, positionItem));
     dispatch(
