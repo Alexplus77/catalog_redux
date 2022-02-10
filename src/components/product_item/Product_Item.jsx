@@ -1,4 +1,5 @@
 import React from "react";
+import "./Product_Item.css";
 import { useDispatch } from "react-redux";
 import {
   handleRemoveItem,

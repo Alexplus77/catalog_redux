@@ -1,0 +1,56 @@
+.productItem-container{
+    position: relative;
+    display: grid;
+    grid-template-columns: 300px 10px;
+    gap: 10px;
+    padding: 10px;
+
+}
+.discount{
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 5%;
+    color: white;
+    background-color: red;
+    border: 2px red solid;
+    width: 50px;
+    border-radius: 70%;
+    text-align: center;
+    z-index: 9;
+}
+.image-product{
+    grid-column: 1/2;
+    width: 300px;
+    height: 200px;
+}
+.hide-text{
+    display: none;
+}
+.price-block{
+    display: grid;
+    grid-column: 1/2;
+    width: 200px;
+    grid-auto-flow: column;
+}
+.price-discount{
+    text-decoration: line-through;
+}
+.name-product{
+    color: blue;
+    grid-column: 1/2;
+}
+.icons-container{
+    display: grid;
+    grid-column: 2/3;
+    grid-row: 1/2;
+    height: 60px;
+}
+.fa-times{
+    font-size: 25px;
+    color: red;
+    cursor: pointer;
+}
+.fa-pencil{
+    font-size: 25px;
+    cursor: pointer;
+}

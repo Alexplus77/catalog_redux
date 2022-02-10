@@ -1,0 +1,8 @@
+.form-container{
+    display: grid;
+    margin-top: 10px;
+    width: 530px;
+    background-color: #d8d3d3;
+    padding: 10px;
+    border-radius: 5px;
+}

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import "./Errors.css";
 import { useSelector, useDispatch } from "react-redux";
 import { handleExitError } from "actions/createActions";
 

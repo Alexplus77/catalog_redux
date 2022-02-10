@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import "./Edit_Form.css";
 import { useSelector, useDispatch } from "react-redux";
 import {
   add_input_value,
