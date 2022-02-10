@@ -11,6 +11,7 @@ const Product_Item = ({ name, price, image, discount, priceDiscount, id }) => {
 
   const defaultImage = "https://i.ibb.co/h18xKCX/tv-2872705-640.png";
   const additionalTopSpace = 50;
+
   const handleRemoveProduct = (id) => dispatch(handleRemoveItem(id));
 
   const handleOnEditMode = (id, e) => {
