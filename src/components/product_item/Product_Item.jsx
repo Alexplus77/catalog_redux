@@ -1,18 +1,23 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   handleRemoveItem,
   onEditMode,
   addEditItem,
 } from "actions/createActions";
-import { Edit_Form } from "components/edit_form";
 
 const Product_Item = ({ name, price, image, discount, priceDiscount, id }) => {
   const dispatch = useDispatch();
+
   const defaultImage = "https://i.ibb.co/h18xKCX/tv-2872705-640.png";
+
   const handleRemoveProduct = (id) => dispatch(handleRemoveItem(id));
-  const handleOnEditMode = (id) => {
-    dispatch(onEditMode(id));
+
+  const handleOnEditMode = (id, e) => {
+    const top = e.target.getBoundingClientRect();
+    const positionItem = e.pageY - top.top;
+
+    dispatch(onEditMode(id, positionItem));
     dispatch(
       addEditItem({
         name: name,
@@ -46,7 +51,7 @@ const Product_Item = ({ name, price, image, discount, priceDiscount, id }) => {
           aria-hidden="true"
         />
         <i
-          onClick={() => handleOnEditMode(id)}
+          onClick={(e) => handleOnEditMode(id, e)}
           className="fa fa-pencil"
           aria-hidden="true"
         />

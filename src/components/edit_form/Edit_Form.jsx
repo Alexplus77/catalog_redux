@@ -9,6 +9,7 @@ import {
 const Edit_Form = () => {
   const dispatch = useDispatch();
   const valueProduct = useSelector((state) => state.valueInputReducer);
+  const { positionItem } = useSelector((state) => state.itemsListReducer);
   const background = useRef();
 
   const handleChangeInput = ({ target }) => {
@@ -33,7 +34,11 @@ const Edit_Form = () => {
   return (
     <div className="edit-container">
       <div className="form-edit-background" ref={background} />
-      <form className="form-edit-container" onSubmit={handleSubmitData}>
+      <form
+        className="form-edit-container"
+        onSubmit={handleSubmitData}
+        style={{ top: `${positionItem}px` }}
+      >
         <div className="form-group">
           <label htmlFor="name">Название товара</label>
           <input
@@ -78,7 +83,6 @@ const Edit_Form = () => {
             name="image"
             value={valueProduct.image}
             placeholder="Введите ссылку на изображение товара"
-            required={true}
           />
         </div>
         <div className="btn-group-edit">

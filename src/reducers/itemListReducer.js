@@ -12,6 +12,7 @@ const initialState = {
   products: [],
   errors: "",
   editProduct: null,
+  positionItem: null,
 };
 const itemListReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -41,9 +42,9 @@ const itemListReducer = (state = initialState, action) => {
         products: state.products.filter(({ id }) => idItem !== id),
       };
     case ON_EDIT_MODE:
-      const idProduct = action.payload;
+      const { idProduct, positionItem } = action.payload;
       const findItem = state.products.find(({ id }) => idProduct === id);
-      return { ...state, editProduct: findItem };
+      return { ...state, editProduct: findItem, positionItem: positionItem };
 
     case HANDLE_SAVE_EDIT_ITEM:
       const dataEdit = action.payload;
@@ -60,7 +61,7 @@ const itemListReducer = (state = initialState, action) => {
       });
       return { ...state, products: updateState, editProduct: null, errors: "" };
     case EXIT_EDIT_ITEM:
-      return { ...state, editProduct: null };
+      return { ...state, editProduct: null, positionItem: null };
     default:
       return state;
   }

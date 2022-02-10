@@ -29,9 +29,9 @@ export const handleSaveItem = (data) => ({
   type: HANDLE_SAVE_EDIT_ITEM,
   payload: data,
 });
-export const onEditMode = (id) => ({
+export const onEditMode = (idProduct, positionItem) => ({
   type: ON_EDIT_MODE,
-  payload: id,
+  payload: { idProduct, positionItem },
 });
 export const addEditItem = (data) => ({
   type: ADD_EDIT_ITEM,
