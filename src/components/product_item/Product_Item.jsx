@@ -9,7 +9,7 @@ import { Edit_Form } from "components/edit_form";
 
 const Product_Item = ({ name, price, image, discount, priceDiscount, id }) => {
   const dispatch = useDispatch();
-
+  const defaultImage = "https://i.ibb.co/h18xKCX/tv-2872705-640.png";
   const handleRemoveProduct = (id) => dispatch(handleRemoveItem(id));
   const handleOnEditMode = (id) => {
     dispatch(onEditMode(id));
@@ -29,8 +29,7 @@ const Product_Item = ({ name, price, image, discount, priceDiscount, id }) => {
       <i className={discount ? "discount" : "hide-text"}>{discount}%</i>
       <img
         className="image-product"
-        //src="https://i.ibb.co/pxpVnst/ironing-403074-640.jpg"
-        src={image}
+        src={image ? image : defaultImage}
         alt="..."
       />
       <div className="price-block">

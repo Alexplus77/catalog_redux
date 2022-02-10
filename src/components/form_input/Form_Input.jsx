@@ -62,7 +62,6 @@ const Form_Input = () => {
           name="image"
           defaultValue=""
           placeholder="Введите ссылку на изображение товара"
-          required={true}
         />
       </div>
       <button type="submit" className="btn btn-primary">

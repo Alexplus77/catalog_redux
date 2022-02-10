@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   add_input_value,
@@ -9,6 +9,7 @@ import {
 const Edit_Form = () => {
   const dispatch = useDispatch();
   const valueProduct = useSelector((state) => state.valueInputReducer);
+  const background = useRef();
 
   const handleChangeInput = ({ target }) => {
     dispatch(add_input_value(target.name, target.value));
@@ -20,9 +21,18 @@ const Edit_Form = () => {
   const handleExitModeEdit = () => {
     dispatch(handleExitEditMode());
   };
+  const handleKeyEsc = (e) =>
+    (background.current === e.target || e.key === "Escape") &&
+    handleExitModeEdit();
+
+  useEffect(() => {
+    document.addEventListener("click", handleKeyEsc);
+    return () => document.removeEventListener("click", handleKeyEsc);
+  }, []);
+
   return (
     <div className="edit-container">
-      <div className="form-edit-background" />
+      <div className="form-edit-background" ref={background} />
       <form className="form-edit-container" onSubmit={handleSubmitData}>
         <div className="form-group">
           <label htmlFor="name">Название товара</label>
