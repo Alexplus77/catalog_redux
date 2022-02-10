@@ -5,7 +5,6 @@ import { add_input_value, handleSubmit } from "actions/createActions";
 const Form_Input = () => {
   const dispatch = useDispatch();
   const valueProduct = useSelector((state) => state.valueInputReducer);
-  const form = useRef();
 
   const handleChangeInput = ({ target }) => {
     dispatch(add_input_value(target.name, target.value));
@@ -13,11 +12,11 @@ const Form_Input = () => {
   const handleSubmitData = (e) => {
     e.preventDefault();
     dispatch(handleSubmit(valueProduct));
-    form.current.reset();
+    e.target.reset();
   };
 
   return (
-    <form className="form-container" onSubmit={handleSubmitData} ref={form}>
+    <form className="form-container" onSubmit={handleSubmitData}>
       <h3>Форма добавления товара</h3>
       <div className="form-group">
         <label htmlFor="name">Название товара</label>
