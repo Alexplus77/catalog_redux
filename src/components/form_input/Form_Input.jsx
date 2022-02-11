@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./Form_Input.css";
 import { useSelector, useDispatch } from "react-redux";
 import { add_input_value, handleSubmit } from "actions/createActions";
@@ -6,13 +6,14 @@ import { add_input_value, handleSubmit } from "actions/createActions";
 const Form_Input = () => {
   const dispatch = useDispatch();
   const valueProduct = useSelector((state) => state.valueInputReducer);
-
+  const inputName = useRef();
   const handleChangeInput = ({ target }) => {
     dispatch(add_input_value(target.name, target.value));
   };
   const handleSubmitData = (e) => {
     e.preventDefault();
     dispatch(handleSubmit(valueProduct));
+    inputName.current.focus();
     e.target.reset();
   };
 
@@ -30,6 +31,7 @@ const Form_Input = () => {
           defaultValue=""
           placeholder="Введите название товара"
           required={true}
+          ref={inputName}
         />
         <label htmlFor="price">Цена товара</label>
         <input
